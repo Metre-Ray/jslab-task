@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { YoutubeRequestService } from '../../services/youtube-request.service';
-import { Observable, AsyncSubject, of, Subscription } from 'rxjs';
-import { FormGroup, FormControl } from '@angular/forms';
+import { Subscription } from 'rxjs';
+import { FormControl } from '@angular/forms';
 import { debounceTime } from 'rxjs/operators';
+
 
 @Component({
   selector: 'app-item-list',
@@ -13,44 +14,52 @@ export class ItemListComponent implements OnInit {
 
   query = '';
   result = [];
-  nextPageToken = '';
+  pageItems = [];
   filterValue = '';
-  oresult = of(this.result);
-  filterInput = new FormControl();  // the element bound to this variable
-
+  numberOfItemsOnPage = 20;
+  filterInput = new FormControl();
+  sub: Subscription;
+  pageNumber: number = 1;
 
   constructor(private service: YoutubeRequestService) {}
 
-  subj = new AsyncSubject();
-  subj2: Subscription;
-
   search(event) {
     event.preventDefault();
-    console.log('query: ', this.query);
+    this.pageNumber = 1;
     this.service.search(this.query).subscribe(
       (data: any) => {
-        console.log('list: ', data);
-        this.nextPageToken = data.nextPageToken;
         this.result = data.items;
+        this.changePageItems();
       }
     )
   }
 
-  filterInputFunc(event) {    // ??
-    this.subj.next(event)
+  changePageItems() {
+    this.pageItems = this.result.slice(this.numberOfItemsOnPage * (this.pageNumber - 1), this.numberOfItemsOnPage * this.pageNumber);
+  }
+
+  nextPage() {
+    if (this.pageNumber >= this.result.length) return;
+    this.pageNumber += 1;
+    this.changePageItems();
+  }
+
+  previousPage() {
+    if (this.pageNumber <= 0) return;
+    this.pageNumber -= 1;
+    this.changePageItems();
   }
 
   ngOnDestroy() {
-    this.subj2.unsubscribe();
+    this.sub.unsubscribe();
   }
 
   ngOnInit() {
-    this.subj2 = this.filterInput
-      .valueChanges   //when user enters a value for every character returns observable instance
+    this.sub = this.filterInput
+      .valueChanges
       .pipe(debounceTime(800))
       .subscribe(data => {
         this.filterValue = data;
-        console.log(data);
       });
   }
 
