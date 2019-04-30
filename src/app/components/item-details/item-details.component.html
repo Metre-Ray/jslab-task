@@ -1,8 +1,13 @@
 <div class="item">
-  <h2>{{item.snippet.title}}</h2>
+  <div class="head">
+    <img src="{{item.snippet.thumbnails.default.url}}" alt="thumbnail image">
+    <h3>{{item.snippet.title}}</h3>
+  </div>
   <ul>
-    <li>Published: {{item.snippet.publishedAt | date}}</li>
-    <li>Channel: {{item.snippet.channelTitle}}</li>
+    <li><i class="far fa-calendar-alt"></i> {{item.snippet.publishedAt | date}}</li>
+    <li><i class="fas fa-user-ninja"></i> {{item.snippet.channelTitle}}</li>
+    <li><i class="far fa-eye"></i>{{item.statistics.viewCount}}</li>
+    <li><i class="fas fa-heartbeat"></i>{{item.statistics.likeCount}}</li>
     <li><a href="https://www.youtube.com/watch?v={{item.id}}" target="_blank">Link to video</a></li>
   </ul>
   <p>{{item.snippet.description}}</p>

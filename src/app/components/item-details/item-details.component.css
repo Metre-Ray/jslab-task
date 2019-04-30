@@ -2,15 +2,29 @@
   width: 90%;
   margin: 0 auto;
   padding: 5px;
-  background: #f7fffd;
-  box-shadow: 0 0 5px rgb(114, 255, 173);
+  box-shadow: 0 0 5px rgb(39, 1, 255);
   text-align: center;
 }
 
-.item ul {
-  list-style-type: none;
+.head {
+  display: grid;
+  grid-auto-flow: column;
+  background: linear-gradient(rgb(211, 211, 255), white, rgb(211, 211, 255))
 }
 
-.item p {
+ul {
+  list-style-type: none;
+  color: rgb(0, 0, 105);
+}
+
+li {
+  margin-top: 5px;
+}
+
+p {
   word-break: break-word;
+}
+
+i {
+  margin-right: 10px;
 }
