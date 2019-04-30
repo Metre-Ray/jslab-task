@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';   // provides a params Observable which we can subscribe to get the route parameters
+import { ActivatedRoute } from '@angular/router';
 import { YoutubeRequestService } from '../../services/youtube-request.service';
 import { map } from 'rxjs/operators';
 
@@ -18,14 +18,12 @@ export class ItemDetailsComponent implements OnInit {
 
   ngOnInit() {
     this.sub = this.route.params.subscribe(params => {
-      console.log(params['id']);
       this.id = params['id'];
       this.sub2 = this.service.searchById(this.id)
       .pipe(map(value => value['items'][0]))
-        .subscribe(data => {
-          this.item = data;
-          console.log('data: ', data);
-        });
+      .subscribe(data => {
+        this.item = data;
+      });
     })
   }
 
