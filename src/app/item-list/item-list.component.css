@@ -1,0 +1,60 @@
+li {
+  padding: 5px;
+  margin: 5px;
+  cursor: pointer;
+}
+
+li:hover {
+  background-color: rgb(226, 255, 226);
+}
+
+.item-list {
+  text-align: center;
+}
+
+form {
+
+}
+
+input {
+  display: inline-block;
+  width: 80%;
+  box-sizing: border-box;
+  padding: 5px;
+  border: 1px solid #BEBEBE;
+  outline: none;
+}
+
+input:focus {
+  box-shadow: 0 0 8px rgb(136, 233, 201);
+}
+
+input, button {
+  transition: all 0.2s linear;
+}
+
+button {
+	padding: 6px 15px;
+  border: none;
+  outline: none;
+  background: rgb(92, 202, 174);
+  color: #fff;
+  cursor: pointer;
+}
+
+button:hover {
+  background: rgb(101, 223, 192);
+}
+
+label{
+  display: block;
+	margin-top: 10px;
+	padding: 0px;
+	font-weight: bold;
+}
+
+.filter {
+  text-align: left;
+  margin: 20px 0;
+}
+

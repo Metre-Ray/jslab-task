@@ -1,0 +1,12 @@
+.item {
+  width: 90%;
+  margin: 0 auto;
+  padding: 5px;
+  background: #f0fffc;
+  box-shadow: 0 0 5px rgb(114, 255, 173);
+  text-align: center;
+}
+
+.item ul {
+  list-style-type: none;
+}

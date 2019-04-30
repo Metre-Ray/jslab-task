@@ -1,0 +1,19 @@
+<div class="item-list">
+  <form action="" (submit)="search($event)">
+    <input type="text" [(ngModel)]="query" name="search-query">
+    <button>Search</button>
+  </form>
+  <div class="filter">
+    <label for="filter-by-date">Filter by date: </label>
+    <input type="text" name="filter-by-date" [formControl]="filterInput">
+  </div>
+  <ul>
+    <li *ngFor="let item of (result | filteringPipe:filterValue:['snippet','publishedAt'])" [appHighlight]="item.snippet.publishedAt | date" [routerLink]="['/item-details', item.id.videoId]">
+      {{ item.snippet.title }}
+    </li>
+  </ul>
+
+  <button></button>
+  <button></button>
+</div>
+
