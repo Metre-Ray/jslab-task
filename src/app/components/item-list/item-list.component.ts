@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { YoutubeRequestService } from '../youtube-request.service';
+import { YoutubeRequestService } from '../../services/youtube-request.service';
 import { Observable, AsyncSubject, of, Subscription } from 'rxjs';
 import { FormGroup, FormControl } from '@angular/forms';
 import { debounceTime } from 'rxjs/operators';

@@ -1,8 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpRequest, HttpParams, HttpHeaders } from '@angular/common/http';
-
-const BASE_LINK = 'https://www.googleapis.com/youtube/v3/search';
-const API_KEY = 'AIzaSyCpUwv8AS3FHOZd45FZkLeM8P-DqUN3MIM';
+import { HttpClient, HttpParams } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'

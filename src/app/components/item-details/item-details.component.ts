@@ -1,6 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';   // provides a params Observable which we can subscribe to get the route parameters
-import { YoutubeRequestService } from '../youtube-request.service';
+import { YoutubeRequestService } from '../../services/youtube-request.service';
 import { map } from 'rxjs/operators';
 
 @Component({

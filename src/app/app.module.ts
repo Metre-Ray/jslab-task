@@ -6,12 +6,12 @@ import { AppComponent } from './app.component';
 
 import { HttpClientModule, HTTP_INTERCEPTORS  }    from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule }   from '@angular/forms';
-import { FilteringPipePipe } from './filtering-pipe.pipe';
-import { HighlightDirective } from './highlight.directive';
-import { ParamInterceptor } from './paramInterceptor';
-import { YoutubeRequestService } from './youtube-request.service';
-import { ItemDetailsComponent } from './item-details/item-details.component';
-import { ItemListComponent } from './item-list/item-list.component';
+import { FilteringPipePipe } from './pipes/filtering-pipe.pipe';
+import { HighlightDirective } from './directives/highlight.directive';
+import { ParamInterceptor } from './services/paramInterceptor';
+import { YoutubeRequestService } from './services/youtube-request.service';
+import { ItemDetailsComponent } from './components/item-details/item-details.component';
+import { ItemListComponent } from './components/item-list/item-list.component';
 
 @NgModule({
   declarations: [
