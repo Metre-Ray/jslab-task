@@ -9,12 +9,12 @@ export class YoutubeRequestService {
   constructor(private http: HttpClient) {}
 
   search(query: string){
-    const params = new HttpParams().set('q', query);
+    const params = new HttpParams().set('q', query).set('part', 'snippet');
     return this.http.get('search', {params: params});
   }
 
   searchById(id) {
-    const params = new HttpParams().set('id', id);
+    const params = new HttpParams().set('id', id).set('part', 'snippet,statistics');
     return this.http.get('videos', {params: params});
   }
 }
